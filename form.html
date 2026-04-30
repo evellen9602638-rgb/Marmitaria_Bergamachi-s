@@ -1,0 +1,183 @@
+<html>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/ia2.ico" type="image/x-icon">
+
+    <!-- SEO básico -->
+    <title>Marmitaria Bergamachi's | Marmitas Caseiras e Comida Delivery</title>
+
+    <meta name="description"
+        content="Marmitaria Bergamachi's: comida caseira deliciosa, marmitas fresquinhas e delivery rápido. Peça já sua marmita!">
+
+    <meta name="keywords" content="marmitaria, marmitas, comida caseira, delivery, comida pronta, Bergamachi">
+
+    <meta name="author" content="Bergamachi's">
+
+    <!-- Open Graph (para redes sociais) -->
+    <meta property="og:title" content="Marmitaria Bergamachi's">
+    <meta property="og:description"
+        content="Sem tempo de cozinhar? A gente resolve! Marmitas caseiras com sabor de casa.">
+    <meta property="og:image" content="img/marmitas.png">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon (opcional) -->
+    <link rel="icon" href="favicon.ico" type="">
+
+    <link rel="stylesheet" href="css/cssfoda.css">
+</head>
+
+<body>
+    <div class="menu">
+        <a href="menu.html">🏠 Inicio</a>
+        <a href="bebidas.html">🥤 Bebidas</a>
+        <a href="porcao.html">🍝 Porções</a>
+        <a href="galeria.html">📜 Galeria</a>
+    </div>
+
+
+    <body>
+
+        <div class="form-pedido">
+            <h2>Pedido</h2>
+
+            <label>Nome:</label>
+            <input type="text" id="nome">
+
+            <label>Tipo de pedido:</label>
+            <select id="tipoPedido" onchange="mostrarOpcoes()">
+                <option value="marmita">Marmita</option>
+                <option value="porcao">Porção</option>
+            </select>
+
+            <!-- Marmita -->
+            <div id="marmita">
+                <label>Tamanho:</label>
+                <select id="tamMarmita">
+                    <option value="17">Pequena (R$17)</option>
+                    <option value="20">Média (R$20)</option>
+                    <option value="25">Grande (R$25)</option>
+                </select>
+
+                <label>Quantidade:</label>
+                <input type="number" id="qtdMarmita" value="1" min="1">
+            </div>
+
+            <!-- Porção -->
+            <div id="porcao" style="display:none;">
+                <label>Escolha a porção:</label>
+                <select id="tipoPorcao">
+                    <option>Feijoada</option>
+                    <option>Galinhada</option>
+                    <option>Maionese</option>
+                    <option>Torresmo</option>
+                    <option>Tropeiro</option>
+                </select>
+
+                <label>Tamanho:</label>
+                <select id="tamPorcao">
+                    <option value="20">Pequena (R$20)</option>
+                    <option value="25">Média (R$25)</option>
+                    <option value="35">Grande (R$35)</option>
+                </select>
+            </div>
+
+            <label>Vai querer bebida?</label>
+            <select id="bebida" onchange="mostrarBebida()">
+                <option value="0">Não</option>
+                <option value="1">Sim</option>
+            </select>
+
+            <div id="opcaoBebida" style="display:none;">
+                <select id="tipoBebida">
+                    <option value="6">Lata 350ml (R$6)</option>
+                    <option value="8">600ml (R$8)</option>
+                    <option value="14">2L (R$14)</option>
+                </select>
+            </div>
+
+            <button onclick="adicionarPedido()">➕ Adicionar Pedido</button>
+
+            <div class="lista" id="listaPedidos"></div>
+
+            <div class="total" id="totalFinal"></div>
+
+        </div>
+
+        <script>
+            let carrinho = [];
+
+            function mostrarOpcoes() {
+                let tipo = document.getElementById("tipoPedido").value;
+
+                document.getElementById("marmita").style.display =
+                    (tipo === "marmita") ? "block" : "none";
+
+                document.getElementById("porcao").style.display =
+                    (tipo === "porcao") ? "block" : "none";
+            }
+
+            function mostrarBebida() {
+                let bebida = document.getElementById("bebida").value;
+
+                document.getElementById("opcaoBebida").style.display =
+                    (bebida == "1") ? "block" : "block";
+            }
+
+            function adicionarPedido() {
+                let nome = document.getElementById("nome").value || "Cliente";
+                let tipo = document.getElementById("tipoPedido").value;
+                let total = 0;
+                let descricao = "";
+
+                if (tipo === "marmita") {
+                    let preco = parseFloat(document.getElementById("tamMarmita").value);
+                    let qtd = parseInt(document.getElementById("qtdMarmita").value) || 1;
+
+                    total = preco * qtd;
+                    descricao = `Marmita x${qtd}`;
+                } else {
+                    let preco = parseFloat(document.getElementById("tamPorcao").value);
+                    let tipoP = document.getElementById("tipoPorcao").value;
+
+                    total = preco;
+                    descricao = `Porção de ${tipoP}`;
+                }
+
+                if (document.getElementById("bebida").value == "1") {
+                    let bebida = parseFloat(document.getElementById("tipoBebida").value);
+                    total += bebida;
+                    descricao += " + bebida";
+                }
+
+                carrinho.push({ nome, descricao, total });
+                atualizarCarrinho();
+            }
+
+            function atualizarCarrinho() {
+                let lista = document.getElementById("listaPedidos");
+                let totalGeral = 0;
+
+                lista.innerHTML = "";
+
+                carrinho.forEach((item, index) => {
+                    totalGeral += item.total;
+
+                    lista.innerHTML += `
+            <div class="item">
+                ${item.nome} - ${item.descricao} | R$ ${item.total.toFixed(2)}
+            </div>
+        `;
+                });
+
+                document.getElementById("totalFinal").innerHTML =
+                    "Total geral: R$ " + totalGeral.toFixed(2);
+            }
+        </script>
+
+    </body>
+
+</html>

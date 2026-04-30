@@ -1,0 +1,385 @@
+/* ===================== */
+/* RESET / BASE */
+/* ===================== */
+body {
+    background-color: #A11B1B;
+    font-family: Arial, sans-serif;
+}
+
+/* ===================== */
+/* TÍTULOS */
+/* ===================== */
+#bc {
+    color: #DECF45;
+    text-align: center;
+    font-size: 70px;
+}
+
+#cb {
+    color: #DECF45;
+    text-align: center;
+    font-size: 25px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    text-shadow: 2px 2px #000;
+}
+
+/* ===================== */
+/* IMAGENS INICIAIS */
+/* ===================== */
+#ini {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+}
+
+#jk {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+}
+/* TÍTULO */
+.sobre-card h2 {
+    text-align: center;
+    font-size: 26px;
+    color: #b30000;
+
+    margin-bottom: 25px;
+}
+
+/* CONTEÚDO (imagem + texto) */
+.conteudo-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-bottom: 25px;
+}
+
+/* IMAGEM */
+.img-card {
+    width: 100px;
+    height: 100px;
+
+    object-fit: cover;
+
+    border-radius: 15px;
+
+    border: 3px solid #ff0000;
+}
+
+/* TEXTO */
+.texto-card p {
+    font-size: 15px;
+    color: #444;
+
+    line-height: 1.6;
+}
+
+/* BOTÃO CENTRALIZADO */
+.btn-pedir {
+    display: block;
+    width: fit-content;
+
+    margin: 0 auto;
+
+    padding: 12px 25px;
+
+    background: linear-gradient(90deg, #ff0000, #cc0000);
+    color: white;
+
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+
+    border-radius: 30px;
+
+    box-shadow: 0 5px 15px rgba(255,0,0,0.4);
+
+    transition: 0.3s;
+}
+
+.btn-pedir:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(255,0,0,0.6);
+}
+/* ===================== */
+/* MENU */
+/* ===================== */
+.menu {
+    margin: 0;
+    background-color: #DECF45;
+    padding: 15px;
+    text-align: center;
+}
+
+.menu a {
+    color: black;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    color: #A11B1B;
+}
+
+/* ===================== */
+/* LAYOUT BEBIDAS */
+/* ===================== */
+.contin {
+    display: flex;
+    align-items: center; /* centraliza verticalmente */
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    gap: 30px; /* espaço entre imagem e texto */
+    padding: 20px;
+}
+
+/* IMAGEM */
+.imagem {
+    width: 35%; /* menor largura */
+    height: 100%; /* ocupa toda altura */
+}
+
+.imagem img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; /* leve arredondado */
+}
+
+/* TEXTO (CARD) */
+.texto {
+    width: 40%; /* não ocupa tudo */
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px; /* arredondado */
+    border: 4px solid gold;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* HOVER */
+.texto:hover {
+    transform: scale(1.02);
+    transition: 0.3s;
+}
+
+/* SUBTÍTULO */
+.subtitulo {
+    background: gold;
+    padding: 8px 15px;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+/* SEÇÕES */
+section {
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-bottom: 5px;
+    font-size: 20px;
+}
+
+section p {
+    margin: 5px 0 5px 10px;
+}
+
+/* ===================== */
+/* GALERIA */
+/* ===================== */
+.galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.foto {
+    width: 260px;
+    border: 10px solid gold;
+    border-radius: 20px;
+    overflow: hidden;
+    background: gold;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s;
+}
+
+.foto:hover {
+    transform: scale(1.05);
+}
+
+.foto img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0 0 15px 15px;
+}
+
+.nome {
+    background: gold;
+    color: #111;
+    text-align: center;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* ===================== */
+/* CARDS (PORÇÕES) */
+/* ===================== */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 600px;
+    padding: 15px;
+    background: #fff;
+    border: 4px solid gold;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.card img {
+    width: 250px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    border: 3px solid gold;
+}
+
+.titulo {
+    font-size: 20px;
+    color: #111;
+    background: gold;
+    padding: 5px 10px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.info {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ===================== */
+/* FORMULARIO */
+/* ===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #A11B1B; /* vermelho do site */
+}
+
+/* Container do formulário */
+.form-pedido {
+    width: 420px;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    border: 5px solid #DECF45; /* dourado */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Título */
+h2 {
+    text-align: center;
+    color: #A11B1B;
+    background: #DECF45;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+/* Labels */
+label {
+    margin-top: 12px;
+    display: block;
+    font-weight: bold;
+    color: #111;
+}
+
+/* Inputs */
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 8px;
+    border: 2px solid #DECF45;
+    transition: 0.2s;
+}
+
+/* Efeito ao clicar */
+select:focus, input:focus {
+    border-color: #A11B1B;
+    outline: none;
+    box-shadow: 0 0 6px rgba(161,27,27,0.5);
+}
+
+/* Botão */
+button {
+    width: 100%;
+    margin-top: 18px;
+    padding: 12px;
+    background: #DECF45;
+    color: #111;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Hover */
+button:hover {
+    background: #A11B1B;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* Resultado */
+.total {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 18px;
+    color: #A11B1B;
+}
+
+/* Transição suave */
+#marmita, #porcao, #opcaoBebida {
+    transition: 0.3s;
+}
